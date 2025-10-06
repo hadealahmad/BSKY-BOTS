@@ -1,0 +1,18 @@
+{
+  "name": "sana-bot/bluesky-rss-poster",
+  "description": "Automated bot that posts sana.sy RSS feed updates to Bluesky",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "ext-sqlite3": "*",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-simplexml": "*",
+    "ext-mbstring": "*",
+    "ext-dom": "*"
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
+

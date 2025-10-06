@@ -1,0 +1,10 @@
+# Bluesky Credentials
+# Your Bluesky handle (e.g., yourname.bsky.social)
+BLUESKY_IDENTIFIER=your_handle.bsky.social
+
+# App password (NOT your main password - create one at Settings > App Passwords)
+BLUESKY_PASSWORD=your-app-password-here
+
+# RSS Feed URL
+RSS_FEED_URL=https://sana.sy/rss
+

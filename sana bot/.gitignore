@@ -1,0 +1,24 @@
+# Environment variables
+.env
+
+# Composer
+/vendor/
+
+# Database
+*.sqlite
+*.db
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
