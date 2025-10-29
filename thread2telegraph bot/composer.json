@@ -1,0 +1,18 @@
+{
+  "name": "thread2telegraph/bluesky-thread-to-telegraph",
+  "description": "Bot that converts Bluesky threads to Telegraph pages on mention",
+  "type": "project",
+  "require": {
+    "php": ">=7.4",
+    "ext-sqlite3": "*",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-dom": "*"
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
+
+

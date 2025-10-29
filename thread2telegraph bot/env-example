@@ -1,0 +1,12 @@
+BLUESKY_IDENTIFIER=handle.bsky.social
+BLUESKY_PASSWORD=app-password-here
+TELEGRAPH_ACCESS_TOKEN=telegraph-token-here
+TELEGRAPH_AUTHOR_NAME=Thread Compiler
+TELEGRAPH_AUTHOR_URL=https://bsky.app/profile/your.handle
+TRIGGER_WORDS=رتبها,سرد,ترتيب,رتب
+DB_PATH=/run/media/hadi/SSD2/Coding/BSKY BOTS/thread2telegraph bot/processed.sqlite
+LOG_PATH=/run/media/hadi/SSD2/Coding/BSKY BOTS/thread2telegraph bot/bot.log
+MAX_MENTIONS_PER_RUN=3
+DRY_RUN=0
+
+

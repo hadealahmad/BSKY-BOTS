@@ -1,0 +1,7 @@
+.env
+*.sqlite
+bot.log
+cron.log
+vendor/
+
+
