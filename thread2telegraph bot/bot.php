@@ -228,6 +228,7 @@ class ThreadToTelegraphBot
     private function buildTelegraphContentFromPosts($posts, $excludeUri = null)
     {
         $content = [];
+        $isFirstIncludedPost = true;
         foreach ($posts as $post) {
             if ($excludeUri && isset($post['uri']) && $post['uri'] === $excludeUri) {
                 continue;
@@ -236,13 +237,13 @@ class ThreadToTelegraphBot
             $text = (string)($post['record']['text'] ?? '');
             $facets = $post['record']['facets'] ?? null;
             
-            $paragraphChildren = [];
-            if ($author && $text !== '') {
-                $paragraphChildren[] = [
-                    'tag' => 'strong',
-                    'children' => ['@' . $author . ': ']
-                ];
+            // Add a separator between replies (but not before the first one)
+            if (!$isFirstIncludedPost) {
+                $content[] = [ 'tag' => 'hr' ];
             }
+
+            $paragraphChildren = [];
+            // Author will be rendered on a separate line below the reply
             
             if (!is_array($facets) || empty($facets)) {
                 if ($text !== '') {
@@ -349,10 +350,23 @@ class ThreadToTelegraphBot
             
             $paragraphChildren = $mergedChildren;
             
+            // Main reply text paragraph
             $content[] = [
                 'tag' => 'p',
                 'children' => $paragraphChildren
             ];
+
+            // Author line directly below the reply text
+            if ($author && $text !== '') {
+                $content[] = [
+                    'tag' => 'p',
+                    'attrs' => ['dir' => 'ltr'],
+                    'children' => [
+                        [ 'tag' => 'em', 'children' => ['— '] ],
+                        [ 'tag' => 'strong', 'children' => ['@' . $author] ]
+                    ]
+                ];
+            }
 
             if (isset($post['embed']['$type']) && $post['embed']['$type'] === 'app.bsky.embed.images#view') {
                 $images = $post['embed']['images'] ?? [];
@@ -395,6 +409,11 @@ class ThreadToTelegraphBot
                         ]
                     ];
                 }
+            }
+
+            // Mark that we've added the first included post
+            if ($isFirstIncludedPost) {
+                $isFirstIncludedPost = false;
             }
         }
         return $content;
